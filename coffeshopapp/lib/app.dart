@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'screens/coffee_info_screen.dart';
 
 class Feature {
-  String icon, units;
+  String component, units;
   num value;
-  Feature(this.icon, this.units, this.value);
+  Feature(this.component, this.value, this.units);
 }
 
 class Coffee {
@@ -31,12 +31,11 @@ final mentaCocktail = Coffee(
   8,
   'assets/images/coffee.png',
   [
-    Feature('lamp', 'W', 22),
-    Feature('hruler', 'cm', 28),
-    Feature('vruler', 'cm', 26),
-    Feature('plug', 'm', 1.6),
+    Feature('Fruit', 25, '%'),
+    Feature('Water', 25, '%'),
+    Feature('Milk', 25, '%'),
   ],
-  Colors.amber,
+  Colors.transparent,
 );
 
 class CoffeeInfoApp extends StatelessWidget {
