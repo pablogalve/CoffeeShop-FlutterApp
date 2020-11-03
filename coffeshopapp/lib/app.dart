@@ -26,9 +26,9 @@ class Coffee {
 }
 
 final mentaCocktail = Coffee(
-  'Melodi',
-  'Reprehenderit sit excepteur aliquip sit laboris consequat pariatur aliquip in anim laboris.',
-  15.99,
+  'Menta Cocktail',
+  'Fresh Drink',
+  8,
   'assets/images/coffee.png',
   [
     Feature('lamp', 'W', 22),
@@ -49,6 +49,7 @@ class CoffeeInfoApp extends StatelessWidget {
       ),
       home: CoffeeInfoScreen(
         coffee: mentaCocktail,
+        
       ),
     );
   }

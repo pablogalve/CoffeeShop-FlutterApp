@@ -8,36 +8,15 @@ class CoffeeInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
           Column(
             children: [
-              Expanded(flex: 5, child: _CoffeePreview(coffee: coffee)),
+              Expanded(flex: 55, child: _CoffeePhoto(asset: coffee.photoUrl)),
+              Expanded(flex: 45, child: _CoffeeInfo(coffee: coffee)),
             ],
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class _CoffeePreview extends StatelessWidget {
-  final Coffee coffee;
-  _CoffeePreview({@required this.coffee});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(40),
-          topRight: Radius.circular(40),
-        ),
-      ),
-      child: Column(
-        children: [
-          _CoffeePhoto(asset: coffee.photoUrl), 
         ],
       ),
     );
@@ -51,8 +30,49 @@ class _CoffeePhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 500,
-      child: Image.asset(asset),
+      child: Image.asset(
+        asset,
+        width: 500,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}
+
+class _CoffeeInfo extends StatelessWidget {
+  final Coffee coffee;
+  _CoffeeInfo({this.coffee});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          _CoffeeName(name: coffee.name),
+        ]
+      ),
+    );
+  }
+}
+
+class _CoffeeName extends StatelessWidget {
+  final String name;
+  _CoffeeName({this.name});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          name,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
+        ),
+      ],
     );
   }
 }
