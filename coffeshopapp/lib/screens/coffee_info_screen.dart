@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../app.dart';
 import '../widgets/product_feature.dart';
+import '../widgets/product_price.dart';
 
 class CoffeeInfoScreen extends StatelessWidget {
   final Coffee coffee;
@@ -21,6 +22,10 @@ class CoffeeInfoScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 485.0),
             child: _CoffeeInfo(coffee: coffee),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: _TotalOrder(),
           ),
         ],
       ),
@@ -76,6 +81,8 @@ class _CoffeeInfo extends StatelessWidget {
               _CoffeeDescription(descr: coffee.description),
               SizedBox(height: 18),
               _CoffeeFeatures(features: coffee.features),
+              SizedBox(height: 35),
+              _CoffeePrice(prices: coffee.prices),   
             ]
        ),
     );
@@ -123,16 +130,60 @@ class _CoffeeFeatures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 160.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          for (var feature in features)
+            ProductFeature(
+              component: feature.component,
+              units: feature.units,
+              value: feature.value,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CoffeePrice extends StatelessWidget {
+  final List<Price> prices;
+  _CoffeePrice({this.prices});
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        for (var feature in features)
-          ProductFeature(
-            component: feature.component,
-            units: feature.units,
-            value: feature.value,
+        for (var price in prices)
+          ProductPrice(
+            units: price.units,
+            value: price.value,
+            priceName: price.priceName,
           ),
       ],
+    );
+  }
+}
+
+class _TotalOrder extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 60.0 + 24,
+      padding: EdgeInsets.only(right:40),
+      child: Stack(
+        children: [
+            Center(
+              child: Icon(
+                Icons.local_drink,
+                color: Colors.white,
+              ),
+            ),
+        ]
+      ),
     );
   }
 }

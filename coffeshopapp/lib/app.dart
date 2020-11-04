@@ -8,10 +8,17 @@ class Feature {
   Feature(this.component, this.value, this.units);
 }
 
+class Price {
+  num value;
+  String priceName, units;
+  Price(this.units, this.value, this.priceName);
+}
+
 class Coffee {
   String name;
   double price;
   List<Feature> features;
+  List<Price> prices;
   String description;
   String photoUrl;
   Color color;
@@ -21,6 +28,7 @@ class Coffee {
     this.price,
     this.photoUrl,
     this.features,
+    this.prices,
     this.color,
   );
 }
@@ -34,6 +42,10 @@ final mentaCocktail = Coffee(
     Feature('Fruit', 25, '%'),
     Feature('Water', 25, '%'),
     Feature('Milk', 25, '%'),
+  ],
+  [
+    Price('\$', 8, 'Price x Drink'),
+    Price('\$', 8, 'Total Price'),
   ],
   Colors.transparent,
 );
