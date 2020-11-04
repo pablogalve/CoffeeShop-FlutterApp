@@ -22,6 +22,13 @@ class CoffeeInfoScreen extends StatelessWidget {
               Expanded(flex: 21, child: _TotalOrder()),
             ],
           ),
+          Padding(
+            padding: const EdgeInsets.only(right: 40.0, bottom: 45.0),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: _PayButton(),
+            ),
+          )
         ],
       ),
 
@@ -172,10 +179,10 @@ class _TotalOrder extends StatelessWidget {
                 'Total Order',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 24,
                 ),
               ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           _TotalInfo(),
            SizedBox(height: 2),
         ],
@@ -240,7 +247,7 @@ class _TotalPriceIcon extends StatelessWidget {
             '32\$',
             style: TextStyle(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.normal,
               color: Colors.white,
             ),
           ),
@@ -250,6 +257,38 @@ class _TotalPriceIcon extends StatelessWidget {
               fontSize: 12,
               fontWeight: FontWeight.w100,
               color: Colors.white70,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class _PayButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.bottomCenter,
+      width: 110,
+      height: 180,
+      decoration: BoxDecoration(
+        color: Color(0xFF49465b),
+        borderRadius: BorderRadius.all(
+          Radius.circular(30),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(MdiIcons.creditCard, color: Colors.white,),
+          Text(
+            'Pay',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
+              color: Colors.white,
             ),
           ),
         ],

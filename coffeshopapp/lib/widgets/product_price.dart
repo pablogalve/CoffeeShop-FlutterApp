@@ -29,7 +29,7 @@ class ProductPrice extends StatelessWidget {
             '$units$value ',
             style: TextStyle(
               fontSize: 26,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.normal,
               color: Colors.white,
             ),
           ),
