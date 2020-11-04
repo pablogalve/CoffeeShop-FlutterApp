@@ -54,7 +54,7 @@ class _CoffeePhoto extends StatelessWidget {
     return Container(
       child: Image.asset(
         asset,
-        width: 500,
+        width: MediaQuery.of(context).size.width,
         fit: BoxFit.cover,
       ),
     );
@@ -156,13 +156,13 @@ class _CoffeePrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: [ 
         for (var price in prices)
-          ProductPrice(
+          ProductPrice(            
             units: price.units,
-            value: price.value,
+            value: price.value,            
             priceName: price.priceName,
-          ),
+          ),            
       ],
     );
   }
@@ -172,7 +172,7 @@ class _TotalOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(38),
+      padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -180,7 +180,6 @@ class _TotalOrder extends StatelessWidget {
             'Total Order',
             style: TextStyle(
               color: Colors.white,
-              fontFamily: "MyriadPro",
               fontWeight: FontWeight.normal,
               fontSize: 24,
             ),
@@ -214,8 +213,8 @@ class _TotalDrinksIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80,
-      height: 70,
+      width: MediaQuery.of(context).size.width * 0.25,
+      height: MediaQuery.of(context).size.height * 0.1,
       padding: EdgeInsets.all(8),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -242,8 +241,8 @@ class _TotalPriceIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80,
-      height: 70,
+      width: MediaQuery.of(context).size.width * 0.25,
+      height: MediaQuery.of(context).size.height * 0.1,
       padding: EdgeInsets.all(8),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
