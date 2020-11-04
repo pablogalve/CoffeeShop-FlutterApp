@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../app.dart';
 import '../widgets/product_feature.dart';
 import '../widgets/product_price.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 
 class CoffeeInfoScreen extends StatelessWidget {
   final Coffee coffee;
@@ -15,17 +17,10 @@ class CoffeeInfoScreen extends StatelessWidget {
         children: [
           Column(
             children: [
-              Expanded(flex: 55, child: _CoffeePhoto(asset: coffee.photoUrl)),
-              Expanded(flex: 45, child: _Background()),
+              Expanded(flex: 46, child: _CoffeePhoto(asset: coffee.photoUrl)),
+              Expanded(flex: 33, child: _CoffeeInfo(coffee: coffee)),
+              Expanded(flex: 21, child: _TotalOrder()),
             ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 485.0),
-            child: _CoffeeInfo(coffee: coffee),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: _TotalOrder(),
           ),
         ],
       ),
@@ -66,23 +61,21 @@ class _CoffeeInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 350,
       decoration: BoxDecoration(
         color: const Color(0xFF1f1e2c),
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
-      padding: EdgeInsets.all(48),
+      padding: EdgeInsets.all(38),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _CoffeeName(name: coffee.name),
-              SizedBox(height: 6),
+              SizedBox(height: 5),
               _CoffeeDescription(descr: coffee.description),
-              SizedBox(height: 18),
+              SizedBox(height: 15),
               _CoffeeFeatures(features: coffee.features),
-              SizedBox(height: 35),
-              _CoffeePrice(prices: coffee.prices),   
+              SizedBox(height: 18),
+              _CoffeePrice(prices: coffee.prices), 
             ]
        ),
     );
@@ -101,7 +94,7 @@ class _CoffeeName extends StatelessWidget {
           name,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 30,
+            fontSize: 32,
           ),
         ),
       ],
@@ -171,18 +164,95 @@ class _TotalOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60,
-      height: 60.0 + 24,
-      padding: EdgeInsets.only(right:40),
-      child: Stack(
+      padding: EdgeInsets.all(38),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-            Center(
-              child: Icon(
-                Icons.local_drink,
-                color: Colors.white,
+          Text(
+                'Total Order',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
               ),
+          SizedBox(height: 20),
+          _TotalInfo(),
+           SizedBox(height: 2),
+        ],
+      ),
+    );
+  }
+}
+
+
+class _TotalInfo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 180.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _TotalDrinksIcon(),
+          _TotalPriceIcon(),
+        ],
+      ),
+    );
+  }
+}
+
+class _TotalDrinksIcon extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 80,
+      height: 70,
+      padding: EdgeInsets.all(8),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Icon(MdiIcons.glassCocktail, color: Colors.white,),
+          Text(
+            'Total Drinks',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w100,
+              color: Colors.white70,
             ),
-        ]
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TotalPriceIcon extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 80,
+      height: 70,
+      padding: EdgeInsets.all(8),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            '32\$',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            'Total Price',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w100,
+              color: Colors.white70,
+            ),
+          ),
+        ],
       ),
     );
   }

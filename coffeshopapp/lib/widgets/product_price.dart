@@ -13,7 +13,7 @@ class ProductPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 190,
-      height: 56,
+      height: 60,
       decoration: BoxDecoration(
         color: Color(0xFF15151f),
         border: Border.all(
