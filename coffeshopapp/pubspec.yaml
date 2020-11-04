@@ -77,3 +77,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+fonts:
+  - family: MyriadPro
+    fonts:
+      - asset: fonts/MYRIADPRO-BOLD.otf
+        weight: 700
+      - asset: fonts/MYRIADPRO-REGULAR.otf
+        weight: 400
+      - asset: fonts/MYRIADPRO-SEMIBOLD.otf
+        weight: 600
+      - asset: fonts/MYRIADPRO-BOLDCOND.otf
+        weight: 800

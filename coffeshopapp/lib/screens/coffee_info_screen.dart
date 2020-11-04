@@ -4,7 +4,6 @@ import '../widgets/product_feature.dart';
 import '../widgets/product_price.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-
 class CoffeeInfoScreen extends StatelessWidget {
   final Coffee coffee;
   CoffeeInfoScreen({@required this.coffee});
@@ -23,7 +22,9 @@ class CoffeeInfoScreen extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 40.0, bottom: 45.0),
+            padding: EdgeInsets.only(
+                right: MediaQuery.of(context).size.width * 0.05,
+                bottom: MediaQuery.of(context).size.height * 0.01),
             child: Align(
               alignment: Alignment.bottomRight,
               child: _PayButton(),
@@ -31,7 +32,6 @@ class CoffeeInfoScreen extends StatelessWidget {
           )
         ],
       ),
-
     );
   }
 }
@@ -72,19 +72,20 @@ class _CoffeeInfo extends StatelessWidget {
         color: const Color(0xFF1f1e2c),
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
-      padding: EdgeInsets.all(38),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _CoffeeName(name: coffee.name),
-              SizedBox(height: 5),
-              _CoffeeDescription(descr: coffee.description),
-              SizedBox(height: 15),
-              _CoffeeFeatures(features: coffee.features),
-              SizedBox(height: 18),
-              _CoffeePrice(prices: coffee.prices), 
-            ]
-       ),
+      padding: EdgeInsets.fromLTRB(
+        MediaQuery.of(context).size.width * 0.1, //Left
+        MediaQuery.of(context).size.height * 0.02, //Top
+        MediaQuery.of(context).size.width * 0.1, //Right
+        MediaQuery.of(context).size.height * 0.01), //Bottom
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        _CoffeeName(name: coffee.name),
+        SizedBox(height: 5),
+        _CoffeeDescription(descr: coffee.description),
+        SizedBox(height: 15),
+        _CoffeeFeatures(features: coffee.features),
+        SizedBox(height: 18),
+        _CoffeePrice(prices: coffee.prices),
+      ]),
     );
   }
 }
@@ -100,8 +101,8 @@ class _CoffeeName extends StatelessWidget {
         Text(
           name,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 32,
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ],
@@ -118,7 +119,7 @@ class _CoffeeDescription extends StatelessWidget {
       descr,
       style: TextStyle(
         color: Colors.grey,
-        fontSize: 18,
+        fontSize: 15.0,
       ),
     );
   }
@@ -176,21 +177,22 @@ class _TotalOrder extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-                'Total Order',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
+            'Total Order',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: "MyriadPro",
+              fontWeight: FontWeight.normal,
+              fontSize: 24,
+            ),
+          ),
           SizedBox(height: 10),
           _TotalInfo(),
-           SizedBox(height: 2),
+          SizedBox(height: 2),
         ],
       ),
     );
   }
 }
-
 
 class _TotalInfo extends StatelessWidget {
   @override
@@ -218,7 +220,10 @@ class _TotalDrinksIcon extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Icon(MdiIcons.glassCocktail, color: Colors.white,),
+          Icon(
+            MdiIcons.glassCocktail,
+            color: Colors.white,
+          ),
           Text(
             'Total Drinks',
             style: TextStyle(
@@ -265,14 +270,13 @@ class _TotalPriceIcon extends StatelessWidget {
   }
 }
 
-
 class _PayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.bottomCenter,
-      width: 110,
-      height: 180,
+      width: MediaQuery.of(context).size.width * 0.2,
+      height: MediaQuery.of(context).size.height * 0.2,
       decoration: BoxDecoration(
         color: Color(0xFF49465b),
         borderRadius: BorderRadius.all(
@@ -282,7 +286,10 @@ class _PayButton extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(MdiIcons.creditCard, color: Colors.white,),
+          Icon(
+            MdiIcons.creditCard,
+            color: Colors.white,
+          ),
           Text(
             'Pay',
             style: TextStyle(

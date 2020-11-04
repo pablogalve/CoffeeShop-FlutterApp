@@ -57,6 +57,10 @@ class CoffeeInfoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.amber,
+        textTheme: Theme.of(context).textTheme.apply(
+          fontFamily: 'MyriadPro',
+          bodyColor: Colors.white,
+          displayColor: Colors.white)
       ),
       home: CoffeeInfoScreen(
         coffee: mentaCocktail,
