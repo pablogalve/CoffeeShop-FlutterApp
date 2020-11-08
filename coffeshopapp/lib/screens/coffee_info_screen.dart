@@ -251,10 +251,38 @@ class _TotalDrinksIcon extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Icon(
-            MdiIcons.glassCocktail,
-            color: Colors.white,
-            size: 26,
+          Stack(
+            children: [
+              Center(
+                child: Icon(
+                  MdiIcons.glassCocktail,
+                  color: Color(0xFF4d4b56),
+                  size: 36,
+                ),
+              ),
+              Align(
+                alignment: Alignment(.3, -.9),
+                child: Container(
+                  width: 22,
+                  height: 22,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0xCC3e3b52),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '3',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'MyriadPro',
+                        fontWeight: FontWeight.normal,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                )
+              )
+            ],
           ),
           Text(
             'Total Drinks',
