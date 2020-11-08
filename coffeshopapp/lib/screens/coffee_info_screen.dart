@@ -3,6 +3,7 @@ import '../app.dart';
 import '../widgets/product_feature.dart';
 import '../widgets/product_price.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:responsive_flutter/responsive_flutter.dart';
 
 class CoffeeInfoScreen extends StatelessWidget {
   final Coffee coffee;
@@ -122,13 +123,14 @@ class _CoffeeName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: [        
         Text(
           name,
           style: TextStyle(
-            fontSize: 30.0,
+            //fontSize: 30.0,
+            fontSize: ResponsiveFlutter.of(context).fontSize(3),
             fontFamily: 'MyriadPro',
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w500,            
           ),
         ),
       ],
