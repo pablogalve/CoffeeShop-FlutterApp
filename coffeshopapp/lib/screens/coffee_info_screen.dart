@@ -72,7 +72,7 @@ class _CoffeePhoto extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Image.asset(
         asset,
-        height: MediaQuery.of(context).size.height / 2,
+        height: MediaQuery.of(context).size.height * 0.5,
         width: MediaQuery.of(context).size.width,
         fit: BoxFit.cover,
       ),
@@ -204,7 +204,7 @@ class _TotalOrder extends StatelessWidget {
         ResponsiveFlutter.of(context).moderateScale(25), 
         ResponsiveFlutter.of(context).moderateScale(20), 
         ResponsiveFlutter.of(context).moderateScale(20), 
-        ResponsiveFlutter.of(context).moderateScale(0)),
+        ResponsiveFlutter.of(context).moderateScale(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -216,11 +216,13 @@ class _TotalOrder extends StatelessWidget {
                 color: Colors.white,
                 fontFamily: 'MyriadPro',
                 fontWeight: FontWeight.normal,
-                fontSize: ResponsiveFlutter.of(context).fontSize(3),
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
               ),
             ),
           ),
-          SizedBox(height: ResponsiveFlutter.of(context).scale(8)),
+          SizedBox(
+            height: ResponsiveFlutter.of(context).scale(8),
+            ),
           _TotalInfo(),
         ],
       ),
@@ -248,8 +250,8 @@ class _TotalDrinksIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.25,
-      height: MediaQuery.of(context).size.height * 0.1,
+      width: ResponsiveFlutter.of(context).scale(90),
+      height: ResponsiveFlutter.of(context).verticalScale(70),
       padding: EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(8)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -266,8 +268,8 @@ class _TotalDrinksIcon extends StatelessWidget {
               Align(
                 alignment: Alignment(.3, -.9),
                 child: Container(
-                  width: 22,
-                  height: 22,
+                  width: ResponsiveFlutter.of(context).scale(22),
+                  height: ResponsiveFlutter.of(context).scale(15),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xCC3e3b52),
@@ -306,8 +308,8 @@ class _TotalPriceIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.25,
-      height: MediaQuery.of(context).size.height * 0.1,
+      width: ResponsiveFlutter.of(context).scale(90),
+      height: ResponsiveFlutter.of(context).verticalScale(70),
       padding: EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(8)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -343,8 +345,8 @@ class _PayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.bottomCenter,
-      width: MediaQuery.of(context).size.width * 0.2,
-      height: MediaQuery.of(context).size.height * 0.2,
+      width: ResponsiveFlutter.of(context).scale(70),
+      height: ResponsiveFlutter.of(context).verticalScale(130),
       decoration: BoxDecoration(
         color: Color(0xFF49465b),
         borderRadius: BorderRadius.all(
@@ -355,7 +357,7 @@ class _PayButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(asset,
-          width: 70),
+          width: ResponsiveFlutter.of(context).scale(60)),
           Text(
             'Pay',
             style: TextStyle(
@@ -377,8 +379,8 @@ class _Counter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.2,
-      height: MediaQuery.of(context).size.height * 0.2,
+      width: ResponsiveFlutter.of(context).scale(70),
+      height: ResponsiveFlutter.of(context).verticalScale(140),
       decoration: BoxDecoration(
         color: Color(0xFF49465b),
         borderRadius: BorderRadius.all(

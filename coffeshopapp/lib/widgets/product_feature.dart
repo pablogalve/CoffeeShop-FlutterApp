@@ -16,6 +16,9 @@ class ProductFeature extends StatelessWidget {
     return Container(
       width: ResponsiveFlutter.of(context).scale(52),
       height: ResponsiveFlutter.of(context).verticalScale(50),
+      constraints: BoxConstraints(
+          maxHeight: 60.0,
+        ),
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border.all(

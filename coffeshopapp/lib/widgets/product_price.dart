@@ -29,7 +29,6 @@ class ProductPrice extends StatelessWidget {
           Text(
             '$units$value ',
             style: TextStyle(
-              //fontSize: 26,
               fontSize: ResponsiveFlutter.of(context).fontSize(3),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.normal,
@@ -39,7 +38,6 @@ class ProductPrice extends StatelessWidget {
           Text(
             '$priceName',
             style: TextStyle(
-              //fontSize: 16,
               fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.normal,
