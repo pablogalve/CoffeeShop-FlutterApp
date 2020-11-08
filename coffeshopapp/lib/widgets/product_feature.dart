@@ -24,7 +24,7 @@ class ProductFeature extends StatelessWidget {
         borderRadius: BorderRadius.circular(10)
 
       ),
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(5)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

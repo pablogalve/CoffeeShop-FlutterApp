@@ -22,14 +22,15 @@ class ProductPrice extends StatelessWidget {
           width: 1,),
         borderRadius: BorderRadius.circular(14)
       ),
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(8)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             '$units$value ',
             style: TextStyle(
-              fontSize: 26,
+              //fontSize: 26,
+              fontSize: ResponsiveFlutter.of(context).fontSize(3),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.normal,
               color: Colors.white,
@@ -38,7 +39,8 @@ class ProductPrice extends StatelessWidget {
           Text(
             '$priceName',
             style: TextStyle(
-              fontSize: 16,
+              //fontSize: 16,
+              fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.normal,
               color: Color(0xFF9999a3),

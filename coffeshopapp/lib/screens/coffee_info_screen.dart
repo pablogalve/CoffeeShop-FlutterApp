@@ -23,8 +23,8 @@ class CoffeeInfoScreen extends StatelessWidget {
           ),
           Padding(
              padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.04,
-                bottom: MediaQuery.of(context).size.height * 0.03),
+                right: ResponsiveFlutter.of(context).moderateScale(15),
+                bottom: ResponsiveFlutter.of(context).moderateScale(10),),
             child: Align(
                 alignment: Alignment.bottomRight,
                 child: _PayButton(asset: coffee.masterCardLogo),
@@ -32,8 +32,8 @@ class CoffeeInfoScreen extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.04,
-                bottom: MediaQuery.of(context).size.height * 0.03),
+                right: ResponsiveFlutter.of(context).moderateScale(15),
+                bottom: ResponsiveFlutter.of(context).moderateScale(10)),
             child: Align(
                 alignment: Alignment.centerRight,
                 child: _Counter(),
@@ -96,17 +96,17 @@ class _CoffeeInfo extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(25)),
           ),
           padding: EdgeInsets.fromLTRB(
-            MediaQuery.of(context).size.width * 0.1, //Left
-            MediaQuery.of(context).size.height * 0.04, //Top
-            MediaQuery.of(context).size.width * 0.1, //Right
-            MediaQuery.of(context).size.height * 0.01), //Bottom
+            ResponsiveFlutter.of(context).moderateScale(25), //Left
+            ResponsiveFlutter.of(context).moderateScale(20), //Top
+            ResponsiveFlutter.of(context).moderateScale(25), //Right
+            ResponsiveFlutter.of(context).moderateScale(5),), //Bottom
           child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             _CoffeeName(name: coffee.name),
-            SizedBox(height: 5),
+            SizedBox(height: ResponsiveFlutter.of(context).scale(4)),
             _CoffeeDescription(descr: coffee.description),
-            SizedBox(height: 20),
+            SizedBox(height: ResponsiveFlutter.of(context).scale(15)),
             _CoffeeFeatures(features: coffee.features),
-            SizedBox(height: 22),
+            SizedBox(height: ResponsiveFlutter.of(context).scale(18)),
             _CoffeePrice(prices: coffee.prices),
           ]),
         ),
@@ -160,7 +160,7 @@ class _CoffeeFeatures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 160.0),
+      padding: EdgeInsets.only(right: ResponsiveFlutter.of(context).moderateScale(140)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -200,12 +200,16 @@ class _TotalOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.fromLTRB(
+        ResponsiveFlutter.of(context).moderateScale(25), 
+        ResponsiveFlutter.of(context).moderateScale(20), 
+        ResponsiveFlutter.of(context).moderateScale(20), 
+        ResponsiveFlutter.of(context).moderateScale(0)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 30.0),
+            padding: EdgeInsets.only(left: ResponsiveFlutter.of(context).moderateScale(15)),
             child: Text(
               'Total Order',
               style: TextStyle(
@@ -216,9 +220,8 @@ class _TotalOrder extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: ResponsiveFlutter.of(context).scale(8)),
           _TotalInfo(),
-          SizedBox(height: 2),
         ],
       ),
     );
@@ -229,7 +232,7 @@ class _TotalInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 180.0),
+      padding: EdgeInsets.only(right: ResponsiveFlutter.of(context).moderateScale(140)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -247,7 +250,7 @@ class _TotalDrinksIcon extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.25,
       height: MediaQuery.of(context).size.height * 0.1,
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(8)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -257,7 +260,7 @@ class _TotalDrinksIcon extends StatelessWidget {
                 child: Icon(
                   MdiIcons.glassCocktail,
                   color: Color(0xFF4d4b56),
-                  size: 36,
+                  size: ResponsiveFlutter.of(context).scale(28),
                 ),
               ),
               Align(
@@ -305,7 +308,7 @@ class _TotalPriceIcon extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.25,
       height: MediaQuery.of(context).size.height * 0.1,
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(8)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -383,7 +386,12 @@ class _Counter extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.fromLTRB(
+          ResponsiveFlutter.of(context).moderateScale(10),
+          ResponsiveFlutter.of(context).moderateScale(10),
+          ResponsiveFlutter.of(context).moderateScale(10),
+          ResponsiveFlutter.of(context).moderateScale(10),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget> [
@@ -398,7 +406,8 @@ class _Counter extends StatelessWidget {
               child: Center(
                 child: Icon(
                   MdiIcons.plus,
-                  color: Colors.white
+                  color: Colors.white,
+                  size: ResponsiveFlutter.of(context).scale(20),
                   ),
               ),
             ),
@@ -432,7 +441,8 @@ class _Counter extends StatelessWidget {
               child: Center(
                 child: Icon(
                   MdiIcons.minus,
-                  color: Colors.white
+                  color: Colors.white,
+                  size: ResponsiveFlutter.of(context).scale(20),
                   ),
               ),
             ),
