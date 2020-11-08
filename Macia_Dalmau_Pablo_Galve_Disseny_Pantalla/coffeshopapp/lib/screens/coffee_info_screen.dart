@@ -39,15 +39,6 @@ class CoffeeInfoScreen extends StatelessWidget {
                 child: _Counter(),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-                left: ResponsiveFlutter.of(context).moderateScale(15),
-                bottom: ResponsiveFlutter.of(context).moderateScale(10)),
-            child: Align(
-                alignment: Alignment.bottomLeft,
-                child: _TotalInfo(),
-            ),
-          ),
         ],
       ),
     );
@@ -191,19 +182,16 @@ class _CoffeePrice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:  EdgeInsets.only(right: ResponsiveFlutter.of(context).moderateScale(50)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [ 
-          for (var price in prices)
-            ProductPrice(            
-              units: price.units,
-              value: price.value,            
-              priceName: price.priceName,
-            ),            
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [ 
+        for (var price in prices)
+          ProductPrice(            
+            units: price.units,
+            value: price.value,            
+            priceName: price.priceName,
+          ),            
+      ],
     );
   }
 }
@@ -214,9 +202,9 @@ class _TotalOrder extends StatelessWidget {
     return Container(
       height: ResponsiveFlutter.of(context).verticalScale(50),
       padding: EdgeInsets.fromLTRB(
-        ResponsiveFlutter.of(context).moderateScale(15), 
-        ResponsiveFlutter.of(context).moderateScale(10), 
-        ResponsiveFlutter.of(context).moderateScale(10), 
+        ResponsiveFlutter.of(context).moderateScale(25), 
+        ResponsiveFlutter.of(context).moderateScale(20), 
+        ResponsiveFlutter.of(context).moderateScale(20), 
         ResponsiveFlutter.of(context).moderateScale(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -233,6 +221,10 @@ class _TotalOrder extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: ResponsiveFlutter.of(context).scale(8),
+            ),
+          _TotalInfo(),
         ],
       ),
     );
