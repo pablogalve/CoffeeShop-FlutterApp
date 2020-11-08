@@ -31,7 +31,7 @@ class ProductFeature extends StatelessWidget {
           Text(
             '$value$units',
             style: TextStyle(
-              fontSize: 15,
+              fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.w500,
               color: Colors.white70,
@@ -40,7 +40,7 @@ class ProductFeature extends StatelessWidget {
           Text(
             '$component',
             style: TextStyle(
-              fontSize: 13,
+              fontSize: ResponsiveFlutter.of(context).fontSize(1.7),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.w200,
               color: Colors.white38,

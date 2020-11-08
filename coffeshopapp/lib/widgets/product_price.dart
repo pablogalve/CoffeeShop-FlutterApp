@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_flutter/responsive_flutter.dart';
 
 class ProductPrice extends StatelessWidget {
   final String priceName, units;
@@ -12,8 +13,8 @@ class ProductPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 190,
-      height: 60,
+      width: ResponsiveFlutter.of(context).scale(130),
+      height: ResponsiveFlutter.of(context).verticalScale(40),
       decoration: BoxDecoration(
         color: Color(0xFF15151f),
         border: Border.all(

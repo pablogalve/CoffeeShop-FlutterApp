@@ -389,8 +389,8 @@ class _Counter extends StatelessWidget {
           children: <Widget> [
             Container(
               alignment: Alignment.topCenter,
-              width: 35.0,
-              height: 35.0,
+              width: ResponsiveFlutter.of(context).scale(35),
+              height: ResponsiveFlutter.of(context).verticalScale(35),
               decoration: new BoxDecoration(
               color: Color(0xFF312f3d),
               shape: BoxShape.circle,
@@ -404,8 +404,8 @@ class _Counter extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              width: 35.0,
-              height: 35.0,
+              width: ResponsiveFlutter.of(context).scale(35),
+              height: ResponsiveFlutter.of(context).verticalScale(35),
               decoration: new BoxDecoration(
               color: Color(0xFF7c7797),
               shape: BoxShape.circle,
@@ -423,8 +423,8 @@ class _Counter extends StatelessWidget {
               ),
             Container(
               alignment: Alignment.bottomCenter,
-              width: 35.0,
-              height: 35.0,
+              width: ResponsiveFlutter.of(context).scale(35),
+              height: ResponsiveFlutter.of(context).verticalScale(35),
               decoration: new BoxDecoration(
                color: Color(0xFF312f3d),
               shape: BoxShape.circle,
