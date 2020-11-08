@@ -21,12 +21,14 @@ class Coffee {
   List<Price> prices;
   String description;
   String photoUrl;
+  String masterCardLogo;
   Color color;
   Coffee(
     this.name,
     this.description,
     this.price,
     this.photoUrl,
+    this.masterCardLogo,
     this.features,
     this.prices,
     this.color,
@@ -38,6 +40,7 @@ final mentaCocktail = Coffee(
   'Fresh Drink',
   8,
   'assets/images/coffee.png',
+  'assets/images/mastercard.png',
   [
     Feature('Fruit', 25, '%'),
     Feature('Water', 25, '%'),

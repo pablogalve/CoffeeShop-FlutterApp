@@ -21,14 +21,23 @@ class CoffeeInfoScreen extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.03,
+             padding: EdgeInsets.only(
+                right: MediaQuery.of(context).size.width * 0.04,
                 bottom: MediaQuery.of(context).size.height * 0.03),
             child: Align(
-              alignment: Alignment.bottomRight,
-              child: _PayButton(),
+                alignment: Alignment.bottomRight,
+                child: _PayButton(asset: coffee.masterCardLogo),
             ),
-          )
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                right: MediaQuery.of(context).size.width * 0.04,
+                bottom: MediaQuery.of(context).size.height * 0.03),
+            child: Align(
+                alignment: Alignment.centerRight,
+                child: _Counter(),
+            ),
+          ),
         ],
       ),
     );
@@ -297,6 +306,8 @@ class _TotalPriceIcon extends StatelessWidget {
 }
 
 class _PayButton extends StatelessWidget {
+   final String asset;
+  _PayButton({this.asset});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -312,20 +323,93 @@ class _PayButton extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            MdiIcons.creditCard,
-            color: Colors.white,
-          ),
+          Image.asset(asset,
+          width: 70),
           Text(
             'Pay',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 24,
               color: Colors.white,
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.bold,
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _Counter extends StatelessWidget {
+  _Counter();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.2,
+      height: MediaQuery.of(context).size.height * 0.2,
+      decoration: BoxDecoration(
+        color: Color(0xFF49465b),
+        borderRadius: BorderRadius.all(
+          Radius.circular(30),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget> [
+            Container(
+              alignment: Alignment.topCenter,
+              width: 35.0,
+              height: 35.0,
+              decoration: new BoxDecoration(
+              color: Color(0xFF312f3d),
+              shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Icon(
+                  MdiIcons.plus,
+                  color: Colors.white
+                  ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              width: 35.0,
+              height: 35.0,
+              decoration: new BoxDecoration(
+              color: Color(0xFF7c7797),
+              shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  '2',
+                  style: TextStyle(
+                  fontSize: 22,
+                  fontFamily: 'MyriadPro',
+                  fontWeight: FontWeight.normal,
+                      ),
+                    )
+                  ),
+              ),
+            Container(
+              alignment: Alignment.bottomCenter,
+              width: 35.0,
+              height: 35.0,
+              decoration: new BoxDecoration(
+               color: Color(0xFF312f3d),
+              shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Icon(
+                  MdiIcons.minus,
+                  color: Colors.white
+                  ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
