@@ -29,6 +29,7 @@ class ProductPrice extends StatelessWidget {
             '$units$value ',
             style: TextStyle(
               fontSize: 26,
+              fontFamily: 'MyriadPro',
               fontWeight: FontWeight.normal,
               color: Colors.white,
             ),
@@ -37,7 +38,8 @@ class ProductPrice extends StatelessWidget {
             '$priceName',
             style: TextStyle(
               fontSize: 16,
-              fontWeight: FontWeight.w400,
+              fontFamily: 'MyriadPro',
+              fontWeight: FontWeight.normal,
               color: Color(0xFF9999a3),
             ),
           ),

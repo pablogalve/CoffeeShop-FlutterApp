@@ -16,15 +16,14 @@ class CoffeeInfoScreen extends StatelessWidget {
         children: [
           Column(
             children: [
-              Expanded(flex: 46, child: _CoffeePhoto(asset: coffee.photoUrl)),
-              Expanded(flex: 33, child: _CoffeeInfo(coffee: coffee)),
+              Expanded(flex: 79, child: _CoffeePreview(coffee: coffee)),
               Expanded(flex: 21, child: _TotalOrder()),
             ],
           ),
           Padding(
             padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.05,
-                bottom: MediaQuery.of(context).size.height * 0.01),
+                right: MediaQuery.of(context).size.width * 0.03,
+                bottom: MediaQuery.of(context).size.height * 0.03),
             child: Align(
               alignment: Alignment.bottomRight,
               child: _PayButton(),
@@ -36,24 +35,35 @@ class CoffeeInfoScreen extends StatelessWidget {
   }
 }
 
-class _Background extends StatelessWidget {
+class _CoffeePreview extends StatelessWidget {
+  final Coffee coffee;
+  _CoffeePreview({this.coffee});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF0e0d13),
+      child: Stack(
+        children: <Widget> [
+          _CoffeePhoto(asset: coffee.photoUrl),
+          _CoffeeInfo(coffee: coffee),
+        ],
+        )
+
     );
   }
 }
 
+
 class _CoffeePhoto extends StatelessWidget {
   final String asset;
   _CoffeePhoto({this.asset});
-
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.topCenter,
       child: Image.asset(
         asset,
+        height: MediaQuery.of(context).size.height / 2,
         width: MediaQuery.of(context).size.width,
         fit: BoxFit.cover,
       ),
@@ -67,25 +77,31 @@ class _CoffeeInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF1f1e2c),
-        borderRadius: BorderRadius.all(Radius.circular(25)),
-      ),
-      padding: EdgeInsets.fromLTRB(
-        MediaQuery.of(context).size.width * 0.1, //Left
-        MediaQuery.of(context).size.height * 0.02, //Top
-        MediaQuery.of(context).size.width * 0.1, //Right
-        MediaQuery.of(context).size.height * 0.01), //Bottom
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        _CoffeeName(name: coffee.name),
-        SizedBox(height: 5),
-        _CoffeeDescription(descr: coffee.description),
-        SizedBox(height: 15),
-        _CoffeeFeatures(features: coffee.features),
-        SizedBox(height: 18),
-        _CoffeePrice(prices: coffee.prices),
-      ]),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height / 3,
+          decoration: BoxDecoration(
+            color: const Color(0xFF1f1e2c),
+            borderRadius: BorderRadius.all(Radius.circular(25)),
+          ),
+          padding: EdgeInsets.fromLTRB(
+            MediaQuery.of(context).size.width * 0.1, //Left
+            MediaQuery.of(context).size.height * 0.04, //Top
+            MediaQuery.of(context).size.width * 0.1, //Right
+            MediaQuery.of(context).size.height * 0.01), //Bottom
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            _CoffeeName(name: coffee.name),
+            SizedBox(height: 5),
+            _CoffeeDescription(descr: coffee.description),
+            SizedBox(height: 20),
+            _CoffeeFeatures(features: coffee.features),
+            SizedBox(height: 22),
+            _CoffeePrice(prices: coffee.prices),
+          ]),
+        ),
+      ],
     );
   }
 }
@@ -101,8 +117,9 @@ class _CoffeeName extends StatelessWidget {
         Text(
           name,
           style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 30.0,
+            fontFamily: 'MyriadPro',
+            fontWeight: FontWeight.w500,
           ),
         ),
       ],
@@ -118,8 +135,10 @@ class _CoffeeDescription extends StatelessWidget {
     return Text(
       descr,
       style: TextStyle(
-        color: Colors.grey,
-        fontSize: 15.0,
+        color: Colors.white38,
+        fontSize: 18.0,
+        fontFamily: 'MyriadPro',
+        fontWeight: FontWeight.w300,
       ),
     );
   }
@@ -176,12 +195,16 @@ class _TotalOrder extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            'Total Order',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.normal,
-              fontSize: 24,
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: Text(
+              'Total Order',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'MyriadPro',
+                fontWeight: FontWeight.normal,
+                fontSize: 24,
+              ),
             ),
           ),
           SizedBox(height: 10),
@@ -222,13 +245,15 @@ class _TotalDrinksIcon extends StatelessWidget {
           Icon(
             MdiIcons.glassCocktail,
             color: Colors.white,
+            size: 26,
           ),
           Text(
             'Total Drinks',
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 16,
+              fontFamily: 'MyriadPro',
               fontWeight: FontWeight.w100,
-              color: Colors.white70,
+              color: Colors.white38,
             ),
           ),
         ],
@@ -250,17 +275,19 @@ class _TotalPriceIcon extends StatelessWidget {
           Text(
             '32\$',
             style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.normal,
+              fontSize: 26,
+              fontFamily: 'MyriadPro',
+              fontWeight: FontWeight.w500,
               color: Colors.white,
             ),
           ),
           Text(
             'Total Price',
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 16,
+              fontFamily: 'MyriadPro',
               fontWeight: FontWeight.w100,
-              color: Colors.white70,
+              color: Colors.white38,
             ),
           ),
         ],
@@ -292,9 +319,10 @@ class _PayButton extends StatelessWidget {
           Text(
             'Pay',
             style: TextStyle(
-              fontWeight: FontWeight.bold,
               fontSize: 22,
               color: Colors.white,
+              fontFamily: 'MyriadPro',
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],

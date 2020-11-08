@@ -18,8 +18,8 @@ class ProductFeature extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border.all(
-          color: Colors.white70,
-          width: 1,),
+          color: Colors.white24,
+          width: 2,),
         borderRadius: BorderRadius.circular(10)
 
       ),
@@ -31,16 +31,18 @@ class ProductFeature extends StatelessWidget {
             '$value$units',
             style: TextStyle(
               fontSize: 15,
-              fontWeight: FontWeight.bold,
+              fontFamily: 'MyriadPro',
+              fontWeight: FontWeight.w500,
               color: Colors.white70,
             ),
           ),
           Text(
             '$component',
             style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w100,
-              color: Colors.white70,
+              fontSize: 13,
+              fontFamily: 'MyriadPro',
+              fontWeight: FontWeight.w200,
+              color: Colors.white38,
             ),
           ),
         ],
