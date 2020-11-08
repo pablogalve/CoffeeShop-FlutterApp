@@ -63,7 +63,6 @@ class _CoffeePreview extends StatelessWidget {
   }
 }
 
-
 class _CoffeePhoto extends StatelessWidget {
   final String asset;
   _CoffeePhoto({this.asset});
@@ -127,7 +126,6 @@ class _CoffeeName extends StatelessWidget {
         Text(
           name,
           style: TextStyle(
-            //fontSize: 30.0,
             fontSize: ResponsiveFlutter.of(context).fontSize(3),
             fontFamily: 'MyriadPro',
             fontWeight: FontWeight.w500,            
@@ -147,7 +145,7 @@ class _CoffeeDescription extends StatelessWidget {
       descr,
       style: TextStyle(
         color: Colors.white38,
-        fontSize: 18.0,
+        fontSize: ResponsiveFlutter.of(context).fontSize(2),
         fontFamily: 'MyriadPro',
         fontWeight: FontWeight.w300,
       ),
@@ -214,7 +212,7 @@ class _TotalOrder extends StatelessWidget {
                 color: Colors.white,
                 fontFamily: 'MyriadPro',
                 fontWeight: FontWeight.normal,
-                fontSize: 24,
+                fontSize: ResponsiveFlutter.of(context).fontSize(3),
               ),
             ),
           ),
@@ -278,7 +276,7 @@ class _TotalDrinksIcon extends StatelessWidget {
                         color: Colors.white,
                         fontFamily: 'MyriadPro',
                         fontWeight: FontWeight.normal,
-                        fontSize: 15,
+                        fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
                       ),
                     ),
                   ),
@@ -289,7 +287,7 @@ class _TotalDrinksIcon extends StatelessWidget {
           Text(
             'Total Drinks',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.w100,
               color: Colors.white38,
@@ -314,7 +312,7 @@ class _TotalPriceIcon extends StatelessWidget {
           Text(
             '32\$',
             style: TextStyle(
-              fontSize: 26,
+              fontSize: ResponsiveFlutter.of(context).fontSize(3),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.w500,
               color: Colors.white,
@@ -323,7 +321,7 @@ class _TotalPriceIcon extends StatelessWidget {
           Text(
             'Total Price',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.w100,
               color: Colors.white38,
@@ -358,7 +356,7 @@ class _PayButton extends StatelessWidget {
           Text(
             'Pay',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: ResponsiveFlutter.of(context).fontSize(2.8),
               color: Colors.white,
               fontFamily: 'MyriadPro',
               fontWeight: FontWeight.bold,
@@ -416,7 +414,7 @@ class _Counter extends StatelessWidget {
                 child: Text(
                   '2',
                   style: TextStyle(
-                  fontSize: 22,
+                  fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
                   fontFamily: 'MyriadPro',
                   fontWeight: FontWeight.normal,
                       ),

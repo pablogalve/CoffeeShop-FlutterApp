@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_flutter/responsive_flutter.dart';
 
 class ProductFeature extends StatelessWidget {
   final String component;
@@ -13,8 +14,8 @@ class ProductFeature extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 68,
-      height: 55,
+      width: ResponsiveFlutter.of(context).scale(52),
+      height: ResponsiveFlutter.of(context).verticalScale(50),
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border.all(
