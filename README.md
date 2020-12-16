@@ -1,6 +1,6 @@
 # Coffee Shop Flutter App
 
-<img src="https://github.com/pablogalve/CoffeeShop-FlutterApp/tree/main/images/coffee_shop_screen.png"  height="500"></img>
+<img src="https://raw.githubusercontent.com/pablogalve/CoffeeShop-FlutterApp/main/images/coffee_shop_screen.png"  height="500"></img>
 
 ## Description
 Coffee shop mobile screen made with flutter and dart.
