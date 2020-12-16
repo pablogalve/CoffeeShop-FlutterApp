@@ -15,15 +15,14 @@ class ProductFeature extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: ResponsiveFlutter.of(context).scale(52),
-      height: ResponsiveFlutter.of(context).verticalScale(50),
+      height: ResponsiveFlutter.of(context).verticalScale(55),
       decoration: BoxDecoration(
-        color: Colors.transparent,
-        border: Border.all(
-          color: Colors.white24,
-          width: 2,),
-        borderRadius: BorderRadius.circular(10)
-
-      ),
+          color: Colors.transparent,
+          border: Border.all(
+            color: Colors.white24,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(10)),
       padding: EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(8)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

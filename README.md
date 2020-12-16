@@ -1,25 +1,21 @@
 # Coffee Shop Flutter App
- 
+
+<img src="https://github.com/pablogalve/CoffeeShop-FlutterApp/tree/main/images/coffee_shop_screen.png"  height="500"></img>
+
+## Description
+Coffee shop mobile screen made with flutter and dart.
+
 ## Team Members
 - Pablo Galve Millán 
   - [github.com/pablogalve](https://github.com/pablogalve)
   - [linkedin.com/in/pablogalve/](https://www.linkedin.com/in/pablogalve/)
 - Macià Dalmau Roig 
   - [github.com/maciadalmau](https://github.com/maciadalmau)
-<<<<<<< HEAD
-=======
-- Pol Juan Santos
-  - [github.com/sauko22](https://github.com/sauko22)
->>>>>>> 17d1ebda08a4a84fa629e30576933ca2d5e4fd94
 
 ## LICENSE
 MIT License
 
-<<<<<<< HEAD
 Copyright (c) 2020 Coffee Shop
-=======
-Copyright (c) 2020 Coffe Shop
->>>>>>> 17d1ebda08a4a84fa629e30576933ca2d5e4fd94
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

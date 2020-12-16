@@ -22,12 +22,13 @@ class CoffeeInfoScreen extends StatelessWidget {
             ],
           ),
           Padding(
-             padding: EdgeInsets.only(
-                right: ResponsiveFlutter.of(context).moderateScale(15),
-                bottom: ResponsiveFlutter.of(context).moderateScale(10),),
+            padding: EdgeInsets.only(
+              right: ResponsiveFlutter.of(context).moderateScale(15),
+              bottom: ResponsiveFlutter.of(context).moderateScale(10),
+            ),
             child: Align(
-                alignment: Alignment.bottomRight,
-                child: _PayButton(asset: coffee.masterCardLogo),
+              alignment: Alignment.bottomRight,
+              child: _PayButton(asset: coffee.masterCardLogo),
             ),
           ),
           Padding(
@@ -35,8 +36,8 @@ class CoffeeInfoScreen extends StatelessWidget {
                 right: ResponsiveFlutter.of(context).moderateScale(15),
                 bottom: ResponsiveFlutter.of(context).moderateScale(10)),
             child: Align(
-                alignment: Alignment.centerRight,
-                child: _Counter(),
+              alignment: Alignment.centerRight,
+              child: _Counter(),
             ),
           ),
           Padding(
@@ -44,8 +45,8 @@ class CoffeeInfoScreen extends StatelessWidget {
                 left: ResponsiveFlutter.of(context).moderateScale(15),
                 bottom: ResponsiveFlutter.of(context).moderateScale(10)),
             child: Align(
-                alignment: Alignment.bottomLeft,
-                child: _TotalInfo(),
+              alignment: Alignment.bottomLeft,
+              child: _TotalInfo(),
             ),
           ),
         ],
@@ -61,14 +62,12 @@ class _CoffeePreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Stack(
-        children: <Widget> [
-          _CoffeePhoto(asset: coffee.photoUrl),
-          _CoffeeInfo(coffee: coffee),
-        ],
-        )
-
-    );
+        child: Stack(
+      children: <Widget>[
+        _CoffeePhoto(asset: coffee.photoUrl),
+        _CoffeeInfo(coffee: coffee),
+      ],
+    ));
   }
 }
 
@@ -105,11 +104,13 @@ class _CoffeeInfo extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(25)),
           ),
           padding: EdgeInsets.fromLTRB(
-            ResponsiveFlutter.of(context).moderateScale(25), //Left
+            ResponsiveFlutter.of(context).moderateScale(20), //Left
             ResponsiveFlutter.of(context).moderateScale(20), //Top
-            ResponsiveFlutter.of(context).moderateScale(25), //Right
-            ResponsiveFlutter.of(context).moderateScale(5),), //Bottom
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            ResponsiveFlutter.of(context).moderateScale(20), //Right
+            ResponsiveFlutter.of(context).moderateScale(5), //Bottom
+          ), //Bottom
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             _CoffeeName(name: coffee.name),
             SizedBox(height: ResponsiveFlutter.of(context).verticalScale(4)),
             _CoffeeDescription(descr: coffee.description),
@@ -131,13 +132,13 @@ class _CoffeeName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [        
+      children: [
         Text(
           name,
           style: TextStyle(
             fontSize: ResponsiveFlutter.of(context).fontSize(3),
             fontFamily: 'MyriadPro',
-            fontWeight: FontWeight.w500,            
+            fontWeight: FontWeight.w500,
           ),
         ),
       ],
@@ -169,7 +170,8 @@ class _CoffeeFeatures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: ResponsiveFlutter.of(context).moderateScale(140)),
+      padding: EdgeInsets.only(
+          right: ResponsiveFlutter.of(context).moderateScale(140)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -192,16 +194,17 @@ class _CoffeePrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(right: ResponsiveFlutter.of(context).moderateScale(50)),
+      padding: EdgeInsets.only(
+          right: ResponsiveFlutter.of(context).moderateScale(50)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [ 
+        children: [
           for (var price in prices)
-            ProductPrice(            
+            ProductPrice(
               units: price.units,
-              value: price.value,            
+              value: price.value,
               priceName: price.priceName,
-            ),            
+            ),
         ],
       ),
     );
@@ -214,15 +217,16 @@ class _TotalOrder extends StatelessWidget {
     return Container(
       height: ResponsiveFlutter.of(context).verticalScale(50),
       padding: EdgeInsets.fromLTRB(
-        ResponsiveFlutter.of(context).moderateScale(15), 
-        ResponsiveFlutter.of(context).moderateScale(10), 
-        ResponsiveFlutter.of(context).moderateScale(10), 
-        ResponsiveFlutter.of(context).moderateScale(10)),
+          ResponsiveFlutter.of(context).moderateScale(15),
+          ResponsiveFlutter.of(context).moderateScale(10),
+          ResponsiveFlutter.of(context).moderateScale(10),
+          ResponsiveFlutter.of(context).moderateScale(10)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: ResponsiveFlutter.of(context).moderateScale(15)),
+            padding: EdgeInsets.only(
+                left: ResponsiveFlutter.of(context).moderateScale(15)),
             child: Text(
               'Total Order',
               style: TextStyle(
@@ -243,7 +247,8 @@ class _TotalInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: ResponsiveFlutter.of(context).moderateScale(140)),
+      padding: EdgeInsets.only(
+          right: ResponsiveFlutter.of(context).moderateScale(140)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -275,27 +280,26 @@ class _TotalDrinksIcon extends StatelessWidget {
                 ),
               ),
               Align(
-                alignment: Alignment(.3, -.9),
-                child: Container(
-                  width: ResponsiveFlutter.of(context).scale(22),
-                  height: ResponsiveFlutter.of(context).scale(15),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xCC3e3b52),
-                  ),
-                  child: Center(
-                    child: Text(
-                      '3',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'MyriadPro',
-                        fontWeight: FontWeight.normal,
-                        fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
+                  alignment: Alignment(.3, -.9),
+                  child: Container(
+                    width: ResponsiveFlutter.of(context).scale(22),
+                    height: ResponsiveFlutter.of(context).scale(15),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xCC3e3b52),
+                    ),
+                    child: Center(
+                      child: Text(
+                        '3',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'MyriadPro',
+                          fontWeight: FontWeight.normal,
+                          fontSize: ResponsiveFlutter.of(context).fontSize(1.8),
+                        ),
                       ),
                     ),
-                  ),
-                )
-              )
+                  ))
             ],
           ),
           Text(
@@ -348,7 +352,7 @@ class _TotalPriceIcon extends StatelessWidget {
 }
 
 class _PayButton extends StatelessWidget {
-   final String asset;
+  final String asset;
   _PayButton({this.asset});
   @override
   Widget build(BuildContext context) {
@@ -365,8 +369,7 @@ class _PayButton extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(asset,
-          width: ResponsiveFlutter.of(context).scale(60)),
+          Image.asset(asset, width: ResponsiveFlutter.of(context).scale(60)),
           Text(
             'Pay',
             style: TextStyle(
@@ -405,21 +408,21 @@ class _Counter extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget> [
+          children: <Widget>[
             Container(
               alignment: Alignment.topCenter,
               width: ResponsiveFlutter.of(context).scale(35),
               height: ResponsiveFlutter.of(context).verticalScale(35),
               decoration: new BoxDecoration(
-              color: Color(0xFF312f3d),
-              shape: BoxShape.circle,
+                color: Color(0xFF312f3d),
+                shape: BoxShape.circle,
               ),
               child: Center(
                 child: Icon(
                   MdiIcons.plus,
                   color: Colors.white,
                   size: ResponsiveFlutter.of(context).scale(20),
-                  ),
+                ),
               ),
             ),
             Container(
@@ -427,34 +430,33 @@ class _Counter extends StatelessWidget {
               width: ResponsiveFlutter.of(context).scale(35),
               height: ResponsiveFlutter.of(context).verticalScale(35),
               decoration: new BoxDecoration(
-              color: Color(0xFF7c7797),
-              shape: BoxShape.circle,
+                color: Color(0xFF7c7797),
+                shape: BoxShape.circle,
               ),
               child: Center(
-                child: Text(
-                  '2',
-                  style: TextStyle(
+                  child: Text(
+                '2',
+                style: TextStyle(
                   fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
                   fontFamily: 'MyriadPro',
                   fontWeight: FontWeight.normal,
-                      ),
-                    )
-                  ),
-              ),
+                ),
+              )),
+            ),
             Container(
               alignment: Alignment.bottomCenter,
               width: ResponsiveFlutter.of(context).scale(35),
               height: ResponsiveFlutter.of(context).verticalScale(35),
               decoration: new BoxDecoration(
-               color: Color(0xFF312f3d),
-              shape: BoxShape.circle,
+                color: Color(0xFF312f3d),
+                shape: BoxShape.circle,
               ),
               child: Center(
                 child: Icon(
                   MdiIcons.minus,
                   color: Colors.white,
                   size: ResponsiveFlutter.of(context).scale(20),
-                  ),
+                ),
               ),
             ),
           ],
